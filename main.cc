@@ -1,23 +1,19 @@
-#include <chrono>
+#include "string.h"
 #include <iostream>
-#include <mutex>
 #include <sstream>
-#include <stdint.h>
-#include <string.h>
-#include <thread>
-
+#include <string>
 using namespace std;
 
 int main()
 {
-    char temp[10] = "123456789";
-    cout << temp << endl;
-    strncpy(temp, "aaaaaaa", 3);
-    cout << temp << endl;
+    float orin = 21.55;
 
-    float f = 12345678.1234567;
-    printf("%.7f\n", f);
-        double d = 12345678.1234567;
-    printf("%.7f\n", d);
+    char buf[10];
+    memcpy(buf, &orin, 4);
+
+    float *out = (float *)buf;
+
+    cout << *out << endl; // why 0?
+
     return 0;
 }
